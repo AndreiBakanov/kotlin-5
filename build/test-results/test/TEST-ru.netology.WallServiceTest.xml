@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.WallServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-23T20:34:33" hostname="LAPTOP-URETPCI2" time="0.044">
+  <properties/>
+  <testcase name="addIdNoZero" classname="ru.netology.WallServiceTest" time="0.043"/>
+  <testcase name="updateFalse" classname="ru.netology.WallServiceTest" time="0.0"/>
+  <testcase name="updateTrue" classname="ru.netology.WallServiceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

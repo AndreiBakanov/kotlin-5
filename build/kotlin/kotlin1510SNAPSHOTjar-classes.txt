@@ -1,0 +1,1 @@
+C:\Users\andre\IdeaProjects\kotlin1-5\build\classes\kotlin\main\ru\netology\Likes.class;C:\Users\andre\IdeaProjects\kotlin1-5\build\classes\kotlin\main\ru\netology\MainKt.class;C:\Users\andre\IdeaProjects\kotlin1-5\build\classes\kotlin\main\ru\netology\Post.class;C:\Users\andre\IdeaProjects\kotlin1-5\build\classes\kotlin\main\ru\netology\WallService.class
