@@ -2,6 +2,7 @@ package ru.netology
 
 fun main() {
     val postArray = emptyArray<Reposts>()
+    val postAttachment = emptyArray<Attachment>()
     val postRepost = Reposts(0, false)
     val postComment = Comments(0, true, true, true, false)
     val postGeo = Geo("city", "53.2001°, 50.15°, 53,2001°N, 50,15°E", "Samara")
@@ -31,7 +32,8 @@ fun main() {
         false,
         false,
         false,
-        1
+        1,
+        postAttachment
     )
     val postCorrect = Post(
         1,
@@ -58,7 +60,8 @@ fun main() {
         false,
         false,
         false,
-        1
+        1,
+        postAttachment
     )
     WallService.add(post)
     WallService.update(postCorrect)
@@ -89,7 +92,8 @@ data class Post(
     val isPinned: Boolean,
     val markedAsAds: Boolean,
     val isFavorite: Boolean,
-    val postponedID: Int
+    val postponedID: Int,
+    val attachments: Array<Attachment>
 )
 
 data class Geo(
@@ -138,5 +142,81 @@ object WallService {
         return false
     }
 }
+
+interface Attachment {
+    val type: String
+}
+
+data class AudioAttachment(
+    override val type: String = "audio",
+    val data: Audio
+) : Attachment
+
+data class VideoAttachment(
+    override val type: String = "video",
+    val data: Video
+) : Attachment
+
+data class PhotoAttachment(
+    override val type: String = "photo",
+    val data: Photo
+) : Attachment
+
+data class GraffitiAttachment(
+    override val type: String = "graffiti",
+    val data: Graffiti
+) : Attachment
+
+data class AppAttachment(
+    override val type: String = "app",
+    val data: App
+) : Attachment
+
+data class Audio(
+    val id: Int,
+    val albumID: Int,
+    val ownerID: Int,
+    val userID: Int
+)
+
+data class Graffiti(
+    val id: Int,
+    val ownerID: Int,
+    val photo130: String,
+    val photo604: String,
+)
+
+data class App(
+    val id: Int,
+    val name: String,
+    val photo130: String,
+    val photo604: String,
+)
+
+data class Video(
+    val id: Int,
+    val albumID: Int,
+    val ownerID: Int,
+    val userID: Int
+)
+
+data class Photo(
+    val id: Int,
+    val albumID: Int,
+    val ownerID: Int,
+    val userID: Int,
+    val text: String,
+    val date: Int,
+    val sizes: Array<photoSizes>?,
+    val width: Int,
+    val height: Int
+)
+
+data class photoSizes(
+    val type: String,
+    val url: String,
+    val width: Int,
+    val height: Int
+)
 
 

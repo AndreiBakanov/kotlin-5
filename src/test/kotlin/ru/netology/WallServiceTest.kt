@@ -8,6 +8,7 @@ class WallServiceTest {
     @Test
     fun addIdNoZero() {
         val postArray = emptyArray<Reposts>()
+        val postAttachment = emptyArray<Attachment>()
         val postRepost = Reposts(0, false)
         val postComment = Comments(0, true, true, true, false)
         val postGeo = Geo("city", "53.2001°, 50.15°, 53,2001°N, 50,15°E", "Samara")
@@ -57,7 +58,8 @@ class WallServiceTest {
             isPinned,
             markedAsAds,
             isFavorite,
-            postponedID
+            postponedID,
+            postAttachment
         )
         WallService.add(post)
         assertNotEquals(0, post.id)
@@ -67,6 +69,7 @@ class WallServiceTest {
     @Test
     fun updateTrue() {
         val postArray = emptyArray<Reposts>()
+        val postAttachment = emptyArray<Attachment>()
         val postRepost = Reposts(0, false)
         val postComment = Comments(0, true, true, true, false)
         val postGeo = Geo("city", "53.2001°, 50.15°, 53,2001°N, 50,15°E", "Samara")
@@ -117,11 +120,13 @@ class WallServiceTest {
             isPinned,
             markedAsAds,
             isFavorite,
-            postponedID
+            postponedID,
+            postAttachment
         )
         WallService.add(post)
 
         val postArray1 = emptyArray<Reposts>()
+        val postAttachment1 = emptyArray<Attachment>()
         val postRepost1 = Reposts(0, false)
         val postComment1 = Comments(0, true, true, true, false)
         val postGeo1 = Geo("city", "53.2001°, 50.15°, 53,2001°N, 50,15°E", "Samara")
@@ -172,7 +177,8 @@ class WallServiceTest {
             isPinned1,
             markedAsAds1,
             isFavorite1,
-            postponedID1
+            postponedID1,
+            postAttachment1
         )
         val result = WallService.update(post1)
         assertEquals(true, result)
@@ -181,6 +187,7 @@ class WallServiceTest {
     @Test
     fun updateFalse() {
         val postArray = emptyArray<Reposts>()
+        val postAttachment = emptyArray<Attachment>()
         val postRepost = Reposts(0, false)
         val postComment = Comments(0, true, true, true, false)
         val postGeo = Geo("city", "53.2001°, 50.15°, 53,2001°N, 50,15°E", "Samara")
@@ -231,11 +238,13 @@ class WallServiceTest {
             isPinned,
             markedAsAds,
             isFavorite,
-            postponedID
+            postponedID,
+            postAttachment
         )
         WallService.add(post)
 
         val postArray1 = emptyArray<Reposts>()
+        val postAttachment1 = emptyArray<Attachment>()
         val postRepost1 = Reposts(0, false)
         val postComment1 = Comments(0, true, true, true, false)
         val postGeo1 = Geo("city", "53.2001°, 50.15°, 53,2001°N, 50,15°E", "Samara")
@@ -286,7 +295,8 @@ class WallServiceTest {
             isPinned1,
             markedAsAds1,
             isFavorite1,
-            postponedID1
+            postponedID1,
+            postAttachment1
         )
         val result = WallService.update(post1)
         assertEquals(false, result)
