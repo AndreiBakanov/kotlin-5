@@ -1,9 +1,65 @@
 package ru.netology
 
 fun main() {
-    val postLike = Likes(count = 0)
-    val post = Post(1, 1, 1, 1, "Hello", true, false, false, false, postLike)
-    val postCorrect = Post(1, 1, 1, 1, "Hi", true, false,false, false, postLike)
+    val postArray = emptyArray<Reposts>()
+    val postRepost = Reposts(0, false)
+    val postComment = Comments(0, true, true, true, false)
+    val postGeo = Geo("city", "53.2001°, 50.15°, 53,2001°N, 50,15°E", "Samara")
+    val postLike = Likes(0)
+    val post = Post(
+        1,
+        1,
+        1,
+        1,
+        1,
+        "Hello",
+        1,
+        false,
+        postLike,
+        null,
+        "wiki",
+        postRepost,
+        0,
+        "post",
+        "info",
+        postGeo,
+        1,
+        postArray,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        1
+    )
+    val postCorrect = Post(
+        1,
+        1,
+        1,
+        1,
+        1,
+        "Hi",
+        1,
+        false,
+        postLike,
+        postComment,
+        "wiki",
+        postRepost,
+        0,
+        "post",
+        "info",
+        postGeo,
+        1,
+        postArray,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        1
+    )
     WallService.add(post)
     WallService.update(postCorrect)
 }
@@ -12,13 +68,47 @@ data class Post(
     val id: Int,
     val ownerID: Int,
     val fromID: Int,
+    val createdBy: Int,
     val date: Int,
     val text: String,
+    val replyOwnerID: Int,
+    val friendsOnly: Boolean,
+    val likes: Likes,
+    val comments: Comments?,
+    val copyright: String,
+    val reposts: Reposts?,
+    val views: Int,
+    val postType: String,
+    val postSource: String,
+    val geo: Geo,
+    val signerID: Int,
+    val copyHistory: Array<Reposts>,
+    val canPin: Boolean,
     val canDelete: Boolean,
-    val markedAsAds: Boolean,
+    val canEdit: Boolean,
     val isPinned: Boolean,
+    val markedAsAds: Boolean,
     val isFavorite: Boolean,
-    val likes: Likes
+    val postponedID: Int
+)
+
+data class Geo(
+    val type: String,
+    val coordinates: String,
+    val place: String?
+)
+
+data class Reposts(
+    val count: Int,
+    val userReposted: Boolean
+)
+
+data class Comments(
+    val count: Int,
+    val canPost: Boolean,
+    val groupsCanPost: Boolean,
+    val canClose: Boolean,
+    val canOpen: Boolean
 )
 
 data class Likes(
