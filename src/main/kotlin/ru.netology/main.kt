@@ -143,34 +143,28 @@ object WallService {
     }
 }
 
-interface Attachment {
-    val type: String
-}
+sealed class Attachment(val type: String)
+
 
 data class AudioAttachment(
-    override val type: String = "audio",
     val data: Audio
-) : Attachment
+) : Attachment("audio")
 
 data class VideoAttachment(
-    override val type: String = "video",
     val data: Video
-) : Attachment
+) : Attachment("video")
 
 data class PhotoAttachment(
-    override val type: String = "photo",
     val data: Photo
-) : Attachment
+) : Attachment("photo")
 
 data class GraffitiAttachment(
-    override val type: String = "graffiti",
     val data: Graffiti
-) : Attachment
+) : Attachment("graffiti")
 
 data class AppAttachment(
-    override val type: String = "app",
     val data: App
-) : Attachment
+) : Attachment("app")
 
 data class Audio(
     val id: Int,
