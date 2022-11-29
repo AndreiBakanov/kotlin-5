@@ -1,5 +1,7 @@
 package ru.netology
 
+import java.lang.RuntimeException
+
 fun main() {
     val postArray = emptyArray<Reposts>()
     val postAttachment = emptyArray<Attachment>()
@@ -65,6 +67,10 @@ fun main() {
     )
     WallService.add(post)
     WallService.update(postCorrect)
+    val newComment = Comment(1, 1, 1, "Hello", null, 1, 1, null, null, null)
+    WallService.createComment(1, newComment)
+    val commentReport = Reports(1, 1, 1)
+    WallService.createReport(commentReport)
 }
 
 data class Post(
@@ -107,12 +113,40 @@ data class Reposts(
     val userReposted: Boolean
 )
 
+//Информация о комментариях к записи
 data class Comments(
     val count: Int,
     val canPost: Boolean,
     val groupsCanPost: Boolean,
     val canClose: Boolean,
     val canOpen: Boolean
+)
+
+// Объект, описывающий комментарии на стене
+data class Comment(
+    val id: Int,
+    val fromID: Int,
+    val date: Int,
+    val text: String,
+    val donut: Donut?,
+    val replyToUser: Int,
+    val replyToComment: Int,
+    val attachments: Array<Attachment>?,
+    val parantsStack: Array<Comment>?,
+    val thread: Thread?,
+)
+
+data class Donut(
+    val isDon: Boolean,
+    val placeHolder: String
+)
+
+data class Thread(
+    val count: Int,
+    val items: Array<Comment>?,
+    val canPost: Boolean,
+    val showReplyButton: Boolean,
+    val groupsCanPost: Boolean
 )
 
 data class Likes(
@@ -122,9 +156,47 @@ data class Likes(
     val canPublish: Boolean = true
 )
 
+class PostNotFoundException(massage: String) : RuntimeException(massage)
+
+class IdNotFoundException(massage: String) : RuntimeException(massage)
+
+class CorrectReasonNotFoundException(massage: String) : RuntimeException(massage)
+
+data class Reports(
+    val ownerID: Int,
+    val commentID: Int,
+    val reason: Int
+)
+
 object WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     private val newID = posts.size + 1
+    private var commentReports = emptyArray<Reports>()
+    fun createReport(report: Reports): Int {
+        if (report.reason > 8 || report.reason < 0) {
+            return throw CorrectReasonNotFoundException("Reason is not correct")
+        } else {
+            for (comment in comments) {
+                if (comment.id == report.commentID) {
+                    commentReports += report
+                    return 1
+                }
+            }
+            return throw IdNotFoundException("No comment with ${report.commentID}")
+        }
+    }
+
+    fun createComment(postID: Int, comment: Comment): Comment {
+        for (post in posts) {
+            if (postID == post.id) {
+                comments += comment
+                return comment
+            }
+        }
+        return throw PostNotFoundException("No post with $postID")
+    }
+
     fun add(post: Post): Post {
         val post1 = post.copy(id = newID)
         posts += post1
