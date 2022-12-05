@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.NoteServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-05T13:50:57" hostname="LAPTOP-URETPCI2" time="0.028">
+  <properties/>
+  <testcase name="getUsersNotes" classname="ru.netology.NoteServiceTest" time="0.024"/>
+  <testcase name="createNoteIdNotZero" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="shouldThrowNoteIdIsNotExistExceptionInDelete" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="getNoteById" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="shouldThrowNoteIdIsNotExistExceptionInGetById" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="shouldThrowNoteIdIsNotExistExceptionInEdit" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="shouldThrowNoteIdIsAlreadyExistException" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="deleteNoteReturnNote" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="editNoteTitleChanged" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
