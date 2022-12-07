@@ -17,3 +17,11 @@ class NotesCommentIdIsAlreadyExistException(massage: String) : RuntimeException(
 class NotesCommentIdIsNotExistException(massage: String) : RuntimeException(massage)
 
 class DeletedNotesCommentIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+
+class ChatIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+
+class ChatIdIsNotExistException(massage: String) : RuntimeException(massage)
+
+class MessageIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+
+class MessageIdIsNotExistException(massage: String) : RuntimeException(massage)

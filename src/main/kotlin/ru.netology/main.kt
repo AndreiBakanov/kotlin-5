@@ -71,8 +71,6 @@ fun main() {
 //    WallService.createComment(1, newComment)
 //    val commentReport = Reports(1, 1, 1)
 //    WallService.createReport(commentReport)
-
-
 //    val note = Notes(1,"original", 33)
 //    val note3 = Notes(3,"original2", 33)
 //    val note2 = Notes(2, userId = 33)
@@ -94,8 +92,32 @@ fun main() {
 //    NoteService.restoreNotesComment(copiedNotesComment)
 //    println(NoteService.getNotesComments(1))
 //    println(NoteService.getUsersNotesComments(2))
+    val messages = mutableListOf<Messages>()
+    val chat = Chats(messages = messages)
+    val message = Messages (isRead = true, text = "Hello")
+    val returnMessage = Messages (id = 4, userId = 2, text = "Hi")
+    val returnMessage2 = Messages (id = 5, userId = 2, text = "How are you")
+    val returnMessage3 = Messages (id = 6, userId = 2, text = "Nice to hear from you")
 
+    val messages2 = mutableListOf<Messages>()
+    val chat2 = Chats(id = 2, messages = messages2)
+    val message2 = Messages (id = 2, chatId = 2, isRead = false)
 
+    val messages3 = mutableListOf<Messages>()
+    val chat3 = Chats(id = 3, messages = messages3)
+    val message3 = Messages (id = 3, chatId = 3, userId = 3)
+
+    ChatsMessagesService.createMessage(chat, message)
+    ChatsMessagesService.createMessage(chat2, message2)
+    ChatsMessagesService.createMessage(chat3, message3)
+    ChatsMessagesService.createMessage(chat, returnMessage)
+    ChatsMessagesService.createMessage(chat, returnMessage2)
+    ChatsMessagesService.createMessage(chat, returnMessage3)
+
+    val unreadChats = ChatsMessagesService.getUnreadChatsCount()
+    println(unreadChats)
+    //ChatsMessagesService.getChats(1)
+    println( ChatsMessagesService.getMessages(1, 5, 2))
 
 }
 
