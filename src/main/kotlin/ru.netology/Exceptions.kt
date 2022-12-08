@@ -2,26 +2,28 @@ package ru.netology
 
 import java.lang.RuntimeException
 
-class PostNotFoundException(massage: String) : RuntimeException(massage)
+class PostNotFoundException(message: String) : RuntimeException(message)
 
-class IdNotFoundException(massage: String) : RuntimeException(massage)
+class IdNotFoundException(message: String) : RuntimeException(message)
 
-class CorrectReasonNotFoundException(massage: String) : RuntimeException(massage)
+class CorrectReasonNotFoundException(message: String) : RuntimeException(message)
 
-class NoteIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+class NoteIdIsAlreadyExistException(message: String) : RuntimeException(message)
 
-class NoteIdIsNotExistException(massage: String) : RuntimeException(massage)
+class NoteIdIsNotExistException(message: String) : RuntimeException(message)
 
-class NotesCommentIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+class NotesCommentIdIsAlreadyExistException(message: String) : RuntimeException(message)
 
-class NotesCommentIdIsNotExistException(massage: String) : RuntimeException(massage)
+class NotesCommentIdIsNotExistException(message: String) : RuntimeException(message)
 
-class DeletedNotesCommentIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+class DeletedNotesCommentIdIsAlreadyExistException(message: String) : RuntimeException(message)
 
-class ChatIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+class ChatIdIsAlreadyExistException(message: String) : RuntimeException(message)
 
-class ChatIdIsNotExistException(massage: String) : RuntimeException(massage)
+class ChatIdIsNotExistException(message: String) : RuntimeException(message)
 
-class MessageIdIsAlreadyExistException(massage: String) : RuntimeException(massage)
+class MessageIdIsAlreadyExistException(message: String) : RuntimeException(message)
 
-class MessageIdIsNotExistException(massage: String) : RuntimeException(massage)
+class MessageIdIsNotExistException(message: String) : RuntimeException(message)
+
+class ChatNotFoundException(message: String) : RuntimeException(message)

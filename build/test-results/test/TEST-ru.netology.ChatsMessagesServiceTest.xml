@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.ChatsMessagesServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-08T12:00:34" hostname="LAPTOP-URETPCI2" time="0.024">
+  <properties/>
+  <testcase name="createMessageListSizeIs1" classname="ru.netology.ChatsMessagesServiceTest" time="0.011"/>
+  <testcase name="getUnreadChatsNumberIs1" classname="ru.netology.ChatsMessagesServiceTest" time="0.0"/>
+  <testcase name="getUserChatsNumberIs2" classname="ru.netology.ChatsMessagesServiceTest" time="0.01"/>
+  <testcase name="shouldThrowMessageIdIsAlreadyExistException" classname="ru.netology.ChatsMessagesServiceTest" time="0.0"/>
+  <testcase name="getUserMessageNumberIs1" classname="ru.netology.ChatsMessagesServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

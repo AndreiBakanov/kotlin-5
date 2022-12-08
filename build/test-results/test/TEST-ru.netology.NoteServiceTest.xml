@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.netology.NoteServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-05T13:50:57" hostname="LAPTOP-URETPCI2" time="0.028">
+<testsuite name="ru.netology.NoteServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-08T12:00:34" hostname="LAPTOP-URETPCI2" time="0.007">
   <properties/>
-  <testcase name="getUsersNotes" classname="ru.netology.NoteServiceTest" time="0.024"/>
-  <testcase name="createNoteIdNotZero" classname="ru.netology.NoteServiceTest" time="0.0"/>
+  <testcase name="getUsersNotes" classname="ru.netology.NoteServiceTest" time="0.005"/>
+  <testcase name="createNoteIdNotZero" classname="ru.netology.NoteServiceTest" time="0.001"/>
   <testcase name="shouldThrowNoteIdIsNotExistExceptionInDelete" classname="ru.netology.NoteServiceTest" time="0.0"/>
   <testcase name="getNoteById" classname="ru.netology.NoteServiceTest" time="0.0"/>
   <testcase name="shouldThrowNoteIdIsNotExistExceptionInGetById" classname="ru.netology.NoteServiceTest" time="0.0"/>

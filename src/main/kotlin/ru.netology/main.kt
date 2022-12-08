@@ -117,7 +117,8 @@ fun main() {
     val unreadChats = ChatsMessagesService.getUnreadChatsCount()
     println(unreadChats)
     //ChatsMessagesService.getChats(1)
-    println( ChatsMessagesService.getMessages(1, 5, 2))
+    println( ChatsMessagesService.getMessages(1, 2))
+    println(ChatsMessagesService.getChats(1))
 
 }
 
