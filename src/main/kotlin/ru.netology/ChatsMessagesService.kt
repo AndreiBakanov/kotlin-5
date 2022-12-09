@@ -34,7 +34,7 @@ object ChatsMessagesService {
     }
 
     fun getUnreadChatsCount() =
-        listOfChats.count { chat -> chat.messages.any { !it.isRead && (it.userId != chat.userId) } }
+        listOfChats.asSequence().count { chat -> chat.messages.any { !it.isRead && (it.userId != chat.userId) } }
 //    fun getUnreadChatsCount (): Int {
 //        val unreadChats: List<Chats> = listOfChats.filter { chats ->
 //            chats.messages.filter { messages -> !messages.isRead && (messages.userId != chats.userId) }
@@ -55,9 +55,9 @@ object ChatsMessagesService {
         return usersChats
     }
 
-    fun getMessages(chatId: Int, amountOfMessages: Int): List<Messages> {
-        return listOfChats.find { it.id == chatId }?.messages.orEmpty().takeLast(amountOfMessages)
+    fun getMessages(chatId: Int, amountOfMessages: Int) =
+        listOfChats.asSequence().find { it.id == chatId }?.messages.orEmpty().takeLast(amountOfMessages)
             .onEach { it.isRead = true }
-    }
+
 
 }
